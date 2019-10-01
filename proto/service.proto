@@ -1,7 +1,5 @@
 syntax = "proto3";
 
-package we.are.venom;
-
 message Book {
     int64 isbn = 1;
     string title = 2;

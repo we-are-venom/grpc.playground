@@ -1,4 +1,4 @@
-module github.com/we-are-venom/grpc.playground
+module github.com/we-are-venom/grpc.playground/server
 
 go 1.13
 

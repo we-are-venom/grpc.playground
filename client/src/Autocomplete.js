@@ -1,5 +1,16 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+
+
+const {GetBookRequest} = require('./service_pb.js');
+const {BookServiceClient} = require('./service_grpc_web_pb.js');
+const grpc = {};
+grpc.web = require('grpc-web');
+
+
+
+const client = new BookServiceClient('http://localhost:8080');
+ 
+
 
 export class Autocomplete extends Component {
   static propTypes = {};
@@ -36,6 +47,18 @@ export class Autocomplete extends Component {
   };
 
   render(){
+  
+    const request = new GetBookRequest();
+  request.setIsbn(3);
+ 
+  console.log(client)
+ 
+  client.getBook(request, null, (err, response) => {
+    console.log(err)
+    console.log(response)
+  });
+
+
     const {
         onChange,
         onClick,
